@@ -13,5 +13,5 @@ window.SITE_CONFIG = {
   // Where the enquiry form sends its data.
   // Option A (recommended): paste a Formspree / Web3Forms / Netlify-style endpoint URL.
   // Option B: leave empty and the form opens the visitor's email app addressed to "email" above.
-  formEndpoint: ""                 // e.g. "https://formspree.io/f/xxxxxxx"
+  formEndpoint: "https://formspree.io/f/mwlldgel"                 // e.g. "https://formspree.io/f/xxxxxxx"
 };
