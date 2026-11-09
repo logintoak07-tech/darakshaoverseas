@@ -5,9 +5,9 @@
 ------------------------------------------------------------------- */
 window.SITE = {
   // Contact details shown in the Contact section
-  phone:   "",                     // e.g. "+91 98XXXXXXXX"
+  phone:   "+91-7505688713",                     // e.g. "+91 98XXXXXXXX"
   email:   "",                     // e.g. "info@yourdomain.com"  (the mailbox on your domain)
-  address: "New Delhi, India",     // add the full registered office address when ready
+  address: "Office: T1, 27-B, Third Floor, Khizrabad, Near New Friends Colony, New Delhi - 110025, India",     // add the full registered office address when ready
   hours:   "",                     // e.g. "Mon-Sat, 10:00 - 18:00 IST"
 
   // Where the enquiry form sends its data.
