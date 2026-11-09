@@ -446,6 +446,7 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
 
 @media(max-width:420px){
 
+  /* Header / Brand */
   .brand span{
     max-width:205px;
   }
@@ -455,6 +456,8 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
     line-height:1.05;
   }
 
+
+  /* Hero */
   .hero{
     padding-left:16px;
     padding-right:16px;
@@ -470,6 +473,8 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
     font-size:.62rem;
   }
 
+
+  /* Trust / Statistics */
   .trustbar{
     grid-template-columns:1fr;
   }
@@ -478,21 +483,133 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
     grid-template-columns:1fr 1fr;
   }
 
+
+  /* Contact form */
   .contact form{
     padding:1.25rem;
   }
 
-  /* Keep footer clean on small phones */
-  .footer-credit{
+
+  /* =========================================
+     SMALL MOBILE FOOTER
+     ========================================= */
+
+  footer{
+    grid-template-columns:1fr;
+    padding:32px 18px;
+    gap:20px;
+    text-align:center;
+  }
+
+
+  /* Logo and company information */
+
+  footer .foot-brand{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
     text-align:left;
   }
 
+  footer .foot-brand img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    flex-shrink:0;
+  }
+
+  footer .foot-brand > div{
+    max-width:190px;
+  }
+
+  footer .foot-brand b{
+    display:block;
+    font-size:.95rem;
+    line-height:1.3;
+    white-space:normal;
+  }
+
+  footer .foot-brand span{
+    display:block;
+    margin-top:4px;
+    font-size:.68rem;
+    line-height:1.4;
+    white-space:normal;
+  }
+
+
+  /* Navigation */
+
+  footer nav{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px 16px;
+  }
+
+  footer nav a{
+    font-size:.80rem;
+    white-space:nowrap;
+  }
+
+
+  /* Building Trust tagline */
+
+  footer > p{
+    width:100%;
+    max-width:280px;
+    justify-self:center;
+    margin:0;
+    text-align:center;
+    font-size:.82rem;
+    line-height:1.6;
+  }
+
+
+  /* Copyright and Developer Credit */
+
+  .footer-credit{
+    width:100%;
+    max-width:100%;
+    justify-self:stretch;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:6px;
+  }
+
+  .footer-credit small{
+    display:block;
+    width:100%;
+    max-width:100%;
+    font-size:.70rem;
+    line-height:1.5;
+    white-space:normal;
+  }
+
   .developer-credit{
+    display:block;
+    width:100%;
+    margin-top:2px;
     font-size:.72rem;
     line-height:1.5;
+    white-space:normal;
+    color:#c49a2c !important;
   }
-}
 
+  .developer-credit strong{
+    display:inline;
+    white-space:nowrap;
+    color:#ffffff;
+    font-weight:700;
+  }
+
+}
 
 @media(prefers-reduced-motion:reduce){
 
