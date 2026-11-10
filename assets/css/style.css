@@ -68,6 +68,17 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
     font-weight:700;
     white-space:nowrap;
 }
+.visitor-counter{
+    display:block;
+    color:#aebbd0;
+    font-size:.75rem;
+    letter-spacing:.02em;
+}
+
+.visitor-counter strong{
+    color:#c49a2c;
+    font-weight:700;
+}
 @media(max-width:1040px){
 
   .header{
