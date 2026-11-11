@@ -7,7 +7,73 @@ document.querySelectorAll('.header nav a').forEach(a=>a.addEventListener('click'
 const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('visible');if(e.target.dataset.count&&!e.target.dataset.done){const end=+e.target.dataset.count;let n=0;const timer=setInterval(()=>{n=Math.min(end,n+Math.max(1,Math.ceil(end/28)));e.target.textContent=n;if(n===end)clearInterval(timer)},35);e.target.dataset.done='1'}if(e.target.classList.contains('dial'))e.target.classList.add('animate')}),{threshold:.2});
 document.querySelectorAll('.reveal,[data-count],.dial').forEach(x=>io.observe(x));
 document.getElementById('year').textContent=new Date().getFullYear();
-const form=document.getElementById('enquiry');form.addEventListener('submit',async e=>{e.preventDefault();const status=form.querySelector('.form-status');if(!form.reportValidity())return;const data=Object.fromEntries(new FormData(form));status.textContent='Submitting…';try{if(c.formEndpoint){const r=await fetch(c.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error();status.textContent='Thank you. Your requirement has been submitted.';form.reset()}else if(c.email){const body=Object.entries(data).map(([k,v])=>`${k}: ${v}`).join('\n');location.href=`mailto:${c.email}?subject=${encodeURIComponent('Manpower requirement from '+data.company)}&body=${encodeURIComponent(body)}`;status.textContent='Your email application has opened.'}else{status.textContent='Contact email or form endpoint is not configured yet. Update assets/js/config.js.'}}catch{status.textContent='The form could not be submitted. Please try again or contact us directly.'}});
+/* =========================================
+   COMPANY / INDIVIDUAL FORM BEHAVIOR
+   ========================================= */
+
+const customerType =
+    document.getElementById('customerType');
+
+const companyField =
+    document.getElementById('companyField');
+
+const companyInput =
+    document.getElementById('companyInput');
+
+
+if (customerType && companyField && companyInput) {
+
+    const updateCustomerType = () => {
+
+        const isIndividual =
+            customerType.value === 'Individual';
+
+
+        /* Hide Company for Individual */
+
+        companyField.style.display =
+            isIndividual ? 'none' : 'block';
+
+
+        /* Company must not remain required
+           when the field is hidden */
+
+        companyInput.required =
+            !isIndividual;
+
+
+        /* Do not submit hidden Company field */
+
+        companyInput.disabled =
+            isIndividual;
+
+
+        /* Remove any previously entered
+           Company value */
+
+        if (isIndividual) {
+            companyInput.value = '';
+        }
+
+    };
+
+
+    customerType.addEventListener(
+        'change',
+        updateCustomerType
+    );
+
+
+    /* Correct state on initial page load */
+
+    updateCustomerType();
+
+}
+
+const form=document.getElementById('enquiry');
+
+
+form.addEventListener('submit',async e=>{e.preventDefault();const status=form.querySelector('.form-status');if(!form.reportValidity())return;const data=Object.fromEntries(new FormData(form));status.textContent='Submitting…';try{if(c.formEndpoint){const r=await fetch(c.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error();status.textContent='Thank you. Your requirement has been submitted.';form.reset()}else if(c.email){const body=Object.entries(data).map(([k,v])=>`${k}: ${v}`).join('\n');location.href=`mailto:${c.email}?subject=${encodeURIComponent('Manpower requirement from '+data.company)}&body=${encodeURIComponent(body)}`;status.textContent='Your email application has opened.'}else{status.textContent='Contact email or form endpoint is not configured yet. Update assets/js/config.js.'}}catch{status.textContent='The form could not be submitted. Please try again or contact us directly.'}});
 /* Visitor Counter */
 
 const visitorCount = document.getElementById('visitor-count');
