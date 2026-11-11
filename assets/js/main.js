@@ -11,6 +11,7 @@ document.getElementById('year').textContent=new Date().getFullYear();
    COMPANY / INDIVIDUAL FORM BEHAVIOR
    ========================================= */
 
+
 const customerType =
     document.getElementById('customerType');
 
@@ -19,6 +20,12 @@ const companyField =
 
 const companyInput =
     document.getElementById('companyInput');
+
+const positionsField =
+    document.getElementById('positionsField');
+
+const positionsInput =
+    document.getElementById('positionsInput');
 
 
 if (customerType && companyField && companyInput) {
@@ -29,30 +36,39 @@ if (customerType && companyField && companyInput) {
             customerType.value === 'Individual';
 
 
-        /* Hide Company for Individual */
+        /* Company field */
 
         companyField.style.display =
             isIndividual ? 'none' : 'block';
 
-
-        /* Company must not remain required
-           when the field is hidden */
-
         companyInput.required =
             !isIndividual;
-
-
-        /* Do not submit hidden Company field */
 
         companyInput.disabled =
             isIndividual;
 
-
-        /* Remove any previously entered
-           Company value */
-
         if (isIndividual) {
             companyInput.value = '';
+        }
+
+
+        /* Positions field */
+
+        if (positionsField && positionsInput) {
+
+            positionsField.style.display =
+                isIndividual ? 'none' : 'block';
+
+            positionsInput.required =
+                !isIndividual;
+
+            positionsInput.disabled =
+                isIndividual;
+
+            if (isIndividual) {
+                positionsInput.value = '';
+            }
+
         }
 
     };
@@ -63,8 +79,6 @@ if (customerType && companyField && companyInput) {
         updateCustomerType
     );
 
-
-    /* Correct state on initial page load */
 
     updateCustomerType();
 
