@@ -308,10 +308,21 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
   .cards.three,
   .pillars,
   .people,
-  .benefits,
-  .form-grid{
+  .benefits{
     grid-template-columns:1fr;
   }
+
+
+  /* =========================================
+     MOBILE FORM GRID
+     ========================================= */
+
+  .form-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+    width:100%;
+    max-width:100%;
+  }
+
 
   .split,
   .process-photo{
@@ -374,6 +385,53 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
     width:112px;
     height:112px;
   }
+
+
+  /* =========================================
+     KEEP FORM CONTENT INSIDE WHITE CARD
+     ========================================= */
+
+  #enquiry{
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  #enquiry label{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    box-sizing:border-box;
+  }
+
+  #enquiry input,
+  #enquiry select,
+  #enquiry textarea{
+    display:block;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+  }
+
+
+  /* =========================================
+     FIX MOBILE DATE FIELD OVERFLOW
+     ========================================= */
+
+  #enquiry input[type="date"]{
+    display:block;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+
+    /* Important for iPhone/Safari */
+    -webkit-appearance:none;
+    appearance:none;
+  }
+
+}
 
 
   /* =========================================
